@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+
+  traefik:
+    image: programic/traefik:latest
+    environment:
+      TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL: "certs@domain.tld"
+      TRAEFIK_PROVIDERS_DOCKER_NETWORK: "web"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [ node.role == manager ]
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    networks:
+      - web
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - traefik-data:/data
+
+networks:
+  web:
+    external: true
+
+volumes:
+  traefik-data:

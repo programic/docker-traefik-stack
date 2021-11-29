@@ -1,0 +1,15 @@
+[providers.file]
+  directory ="/dynamic"
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+  [entryPoints.websecure]
+    address = ":443"
+[api]
+  insecure = true
+[certificatesResolvers.letsencrypt.acme]
+  storage = "/data/acme.json"
+  [certificatesResolvers.letsencrypt.acme.tlsChallenge]
+[providers.docker]
+  watch = true
+  exposedByDefault = false

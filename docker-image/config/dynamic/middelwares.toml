@@ -1,0 +1,14 @@
+[http.middlewares]
+  [http.middlewares.to-https.redirectScheme]
+    scheme = "https"
+  [http.middlewares.secure-headers.headers]
+    framedeny = true
+    sslredirect = true
+    contenttypenosniff = true
+    browserxssfilter = true
+    stsincludesubdomains = true
+    stspreload = true
+    stsseconds = 31536000
+    referrerpolicy = "same-origin"
+    [http.middlewares.secure-headers.headers.customResponseHeaders]
+      server = ""
