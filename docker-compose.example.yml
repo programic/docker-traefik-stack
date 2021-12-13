@@ -3,9 +3,9 @@ services:
 
   traefik:
     image: programic/traefik:latest
-    environment:
-      TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL: "certs@domain.tld"
-      TRAEFIK_PROVIDERS_DOCKER_NETWORK: "web"
+    command:
+      - "--certificatesResolvers.letsencrypt.acme.email=certs@domain.tld"
+      - "--providers.docker.network=web"
     deploy:
       replicas: 1
       restart_policy:
