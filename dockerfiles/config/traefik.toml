@@ -7,9 +7,9 @@
     address = ":443"
 [api]
   insecure = true
-[certificatesResolvers.letsencrypt.acme]
+[certificatesResolvers.lets-encrypt.acme]
   storage = "/data/acme.json"
-  [certificatesResolvers.letsencrypt.acme.tlsChallenge]
+  [certificatesResolvers.lets-encrypt.acme.tlsChallenge]
 [providers.docker]
   watch = true
   exposedByDefault = false

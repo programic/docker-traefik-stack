@@ -21,7 +21,7 @@ services:
       - "traefik.http.routers.my-project.rule=Host(`my-project.test`)"
       - "traefik.http.routers.my-project.entrypoints=websecure"
       - "traefik.http.routers.my-project.middlewares=secure-headers@file"
-      - "traefik.http.routers.my-project.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.my-project.tls.certresolver=lets-encrypt"
     networks:
       - network
       - web
