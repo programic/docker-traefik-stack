@@ -13,3 +13,4 @@
 [providers.docker]
   watch = true
   exposedByDefault = false
+  swarmMode = true
