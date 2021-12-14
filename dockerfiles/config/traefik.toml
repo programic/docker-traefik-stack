@@ -1,5 +1,5 @@
 [providers.file]
-  directory ="/dynamic"
+  directory = "/dynamic"
 [entryPoints]
   [entryPoints.web]
     address = ":80"
