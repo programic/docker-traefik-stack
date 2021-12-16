@@ -13,15 +13,21 @@ services:
 
   nginx:
     image: my-project/my-image:latest
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.my-project-http.rule=Host(`my-project.test`)"
-      - "traefik.http.routers.my-project-http.entrypoints=web"
-      - "traefik.http.routers.my-project-http.middlewares=to-https@file"
-      - "traefik.http.routers.my-project.rule=Host(`my-project.test`)"
-      - "traefik.http.routers.my-project.entrypoints=websecure"
-      - "traefik.http.routers.my-project.middlewares=secure-headers@file"
-      - "traefik.http.routers.my-project.tls.certresolver=lets-encrypt"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.services.my-project.loadbalancer.server.port=80"
+        - "traefik.http.routers.my-project-http.rule=Host(`my-project.test`)"
+        - "traefik.http.routers.my-project-http.entrypoints=web"
+        - "traefik.http.routers.my-project-http.middlewares=to-https@file"
+        - "traefik.http.routers.my-project.service=my-project"
+        - "traefik.http.routers.my-project.rule=Host(`my-project.test`)"
+        - "traefik.http.routers.my-project.entrypoints=websecure"
+        - "traefik.http.routers.my-project.middlewares=secure-headers@file"
+        - "traefik.http.routers.my-project.tls.certresolver=lets-encrypt"
     networks:
       - network
       - web
