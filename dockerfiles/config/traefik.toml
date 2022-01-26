@@ -10,6 +10,10 @@
 [certificatesResolvers.lets-encrypt.acme]
   storage = "/data/acme.json"
   [certificatesResolvers.lets-encrypt.acme.tlsChallenge]
+[certificatesResolvers.transip.acme]
+  storage = "/data/acme.json"
+  [certificatesResolvers.transip.acme.dnsChallenge]
+    provider = "transip"
 [providers.docker]
   watch = true
   exposedByDefault = false

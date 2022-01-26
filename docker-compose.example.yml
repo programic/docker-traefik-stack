@@ -3,14 +3,17 @@ services:
 
   traefik:
     image: programic/traefik:latest
-    command:
-      - --certificatesresolvers.lets-encrypt.acme.email=certs@domain.tld
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
       placement:
         constraints: [ node.role == manager ]
+    environment:
+      TRANSIP_ACCOUNT_NAME: transip-account-name
+      TRANSIP_PRIVATE_KEY_PATH: /run/secrets/transip-private-key
+    secrets:
+      - transip-private-key
     ports:
       - target: 80
         published: 80
