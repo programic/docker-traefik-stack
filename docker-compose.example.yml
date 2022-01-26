@@ -10,7 +10,7 @@ services:
       placement:
         constraints: [ node.role == manager ]
 
-    # If you use TransIP as a resolver
+    # Optional if dnsChallenge with TransIP
     environment:
       TRANSIP_ACCOUNT_NAME: <your-transip-account-name-here>
       TRANSIP_PRIVATE_KEY_PATH: /run/secrets/transip-private-key
@@ -40,7 +40,7 @@ networks:
 volumes:
   traefik-data:
 
-# If you use TransIP as a resolver
+# Optional if dnsChallenge with TransIP
 secrets:
   transip-private-key:
     external: true
