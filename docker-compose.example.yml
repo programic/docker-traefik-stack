@@ -36,3 +36,7 @@ networks:
 
 volumes:
   traefik-data:
+
+secrets:
+  transip-private-key:
+    external: true
