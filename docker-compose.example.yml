@@ -39,9 +39,6 @@ networks:
   web:
     external: true
 
-volumes:
-  traefik-data:
-
 # Optional if dnsChallenge with TransIP
 secrets:
   transip-private-key:
