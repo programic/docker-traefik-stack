@@ -6,8 +6,9 @@
    2. Save it as `transip.key` on the Docker Swarm server and in your password manager
    3. Create a secret `docker secret create transip-private-key ./transip.key`
    4. Remove `rm transip.key` on the Docker Swarm server
-7. You can now deploy your stack `bash deploy-stack.sh`
-8. Check if everything is working properly `docker service ls`
+4. Create a acme.json file `cd data && touch acme.json && chmod 600 acme.json`
+5. You can now deploy your stack `bash deploy-stack.sh`
+6. Check if everything is working properly `docker service ls`
 
 # Implementation example
 The example below shows how you can add Traefik to your project.

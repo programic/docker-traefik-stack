@@ -2,7 +2,7 @@ version: '3.8'
 services:
 
   traefik:
-    image: programic/traefik:latest
+    image: traefik:v2.4
     deploy:
       replicas: 1
       restart_policy:
@@ -31,7 +31,9 @@ services:
       - web
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - traefik-data:/data
+      - ./config/traefik.toml:/traefik.toml
+      - ./config/dynamic:/dynamic
+      - ./data:/data
 
 networks:
   web:
