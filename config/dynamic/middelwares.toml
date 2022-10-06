@@ -2,7 +2,6 @@
   [http.middlewares.to-https.redirectScheme]
     scheme = "https"
   [http.middlewares.secure-headers.headers]
-    framedeny = true
     sslredirect = true
     contenttypenosniff = true
     browserxssfilter = true
