@@ -2,7 +2,7 @@
   [http.middlewares.to-https.redirectScheme]
     scheme = "https"
   [http.middlewares.secure-headers.headers]
-    customFrameOptionsValue = "sameorigin"
+    customframeoptionsvalue = "sameorigin"
     sslredirect = true
     contenttypenosniff = true
     browserxssfilter = true
