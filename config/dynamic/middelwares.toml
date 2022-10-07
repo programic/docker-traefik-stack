@@ -2,7 +2,7 @@
   [http.middlewares.to-https.redirectScheme]
     scheme = "https"
   [http.middlewares.secure-headers.headers]
-    contentSecurityPolicy: "frame-ancestors 'self'"
+    contentSecurityPolicy = "frame-ancestors 'self'"
     sslredirect = true
     contenttypenosniff = true
     browserxssfilter = true
