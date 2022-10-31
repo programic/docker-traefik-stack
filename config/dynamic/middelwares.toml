@@ -12,3 +12,9 @@
     referrerpolicy = "same-origin"
     [http.middlewares.secure-headers.headers.customResponseHeaders]
       server = ""
+[http.middlewares.maintenance]
+  [http.middlewares.maintenance.plugin]
+    [http.middlewares.maintenance.plugin.maintenance]
+      informInterval = 60
+      informTimeout = 5
+      informUrl = "https://maintenance.programic.com/inform.json"

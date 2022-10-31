@@ -19,3 +19,6 @@
   exposedByDefault = false
   swarmMode = true
   network = "web"
+[experimental.plugins.maintenance]
+  moduleName = "github.com/programic/traefik-maintenance-plugin"
+  version = "v0.0.1"
